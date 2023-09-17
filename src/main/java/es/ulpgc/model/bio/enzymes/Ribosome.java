@@ -1,4 +1,7 @@
-package es.ulpgc.model;
+package es.ulpgc.model.bio.enzymes;
+
+import es.ulpgc.model.bio.acids.AminoAcid;
+import es.ulpgc.model.bio.helixes.ARNm;
 
 import java.util.List;
 
@@ -9,7 +12,7 @@ public class Ribosome {
         return null;
     }
 
-    public List<Aminoacid> traduce(ARNm arnm) {
+    public List<AminoAcid> traduce(ARNm arnm) {
         return null;
     }
 

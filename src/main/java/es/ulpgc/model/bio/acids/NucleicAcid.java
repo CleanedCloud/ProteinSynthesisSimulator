@@ -1,4 +1,4 @@
-package es.ulpgc.model;
+package es.ulpgc.model.bio.acids;
 
 public enum NucleicAcid {
     Adenine {

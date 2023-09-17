@@ -1,10 +1,12 @@
-package es.ulpgc.model;
+package es.ulpgc.model.bio.helixes;
+
+import es.ulpgc.model.bio.acids.NucleicAcid;
 
 import java.util.List;
 
-public class ARNm extends Helix{
-    public ARNm(List<NucleicAcid> nucleicAcids) {
-        super(nucleicAcids);
+public class ARNm extends Helix {
+    public ARNm(List<NucleicAcid> acids) {
+        super(acids);
     }
 
     public static class Codon {
