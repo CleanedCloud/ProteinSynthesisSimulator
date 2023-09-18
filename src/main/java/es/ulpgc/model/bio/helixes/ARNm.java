@@ -24,8 +24,17 @@ public class ARNm extends Helix {
             return new Codon(acids.get(0), acids.get(1), acids.get(2));
         }
 
-        public Codon anticodon(Codon codon) {
-            return null;
+        public Codon anticodon() {
+            return new Codon(a.complementary(), b.complementary(), c.complementary());
+        }
+
+        @Override
+        public int hashCode() {
+            return list().hashCode();
+        }
+
+        public List<NucleicAcid> list() {
+            return List.of(a, b, c);
         }
     }
 }
