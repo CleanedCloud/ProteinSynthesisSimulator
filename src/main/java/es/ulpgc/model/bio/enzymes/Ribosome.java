@@ -1,18 +1,26 @@
 package es.ulpgc.model.bio.enzymes;
 
-import es.ulpgc.model.bio.acids.AminoAcid;
+import es.ulpgc.model.Action;
+import es.ulpgc.model.bio.Enzyme;
+import es.ulpgc.model.bio.Protein;
 import es.ulpgc.model.bio.helixes.ARNm;
 
 import java.util.List;
 
-public class Ribosome {
+public class Ribosome implements Enzyme {
     public static final List<ARNt> arntList = createArntList();
+    private Action action = Action.NullAction();
 
-    private static List<ARNt> createArntList() {
+    @Override
+    public void with(Action action) {
+        this.action = action;
+    }
+
+    public Protein traduce(ARNm arnm) {
         return null;
     }
 
-    public List<AminoAcid> traduce(ARNm arnm) {
+    private static List<ARNt> createArntList() {
         return null;
     }
 
