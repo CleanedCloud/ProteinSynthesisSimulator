@@ -3,6 +3,7 @@ package es.ulpgc.model.bio.helixes;
 import es.ulpgc.model.bio.acids.NucleicAcid;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Helix {
     protected List<NucleicAcid> acids;
@@ -25,6 +26,27 @@ public class Helix {
 
     public Gen get() {
         return new Gen(acids.subList(from, to));
+    }
+
+    public List<NucleicAcid> nucleicAcids() {
+        return acids;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Helix helix = (Helix) o;
+        return Objects.equals(acids, helix.acids);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(acids);
+    }
+
+    public int size() {
+        return this.acids.size();
     }
 
     public record Gen(List<NucleicAcid> nucleicAcids) {
