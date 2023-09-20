@@ -1,6 +1,5 @@
 package es.ulpgc.model.bio.enzymes;
 
-import es.ulpgc.model.Action;
 import es.ulpgc.model.bio.Enzyme;
 import es.ulpgc.model.bio.Protein;
 import es.ulpgc.model.bio.acids.AminoAcid;
@@ -14,12 +13,6 @@ import static es.ulpgc.model.bio.acids.AminoAcid.aminoAcidMap;
 
 public class Ribosome implements Enzyme {
     public static final List<ARNt> arntList = createArntList();
-    private Action action = Action.NullAction();
-
-    @Override
-    public void with(Action action) {
-        this.action = action;
-    }
 
     public Protein traduce(ARNm arnm) {
         return null;
