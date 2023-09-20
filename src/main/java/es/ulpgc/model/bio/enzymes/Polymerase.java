@@ -7,7 +7,7 @@ import es.ulpgc.model.bio.helixes.ARNm;
 
 import java.util.List;
 
-public class Polymerase implements Enzyme  {
+public class Polymerase implements Enzyme {
     private Action action = Action.NullAction();
 
     @Override

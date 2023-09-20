@@ -3,6 +3,7 @@ package es.ulpgc.model.bio;
 import es.ulpgc.model.Observer;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.IntStream;
 
 public abstract class EnzymePool<T extends Enzyme> implements Observer {
@@ -24,7 +25,14 @@ public abstract class EnzymePool<T extends Enzyme> implements Observer {
         catch (Exception e) { throw new RuntimeException(e); }
     }
 
-    @Override
-    public void notify(Object object) {
+    public T randomEnzyme() {
+        return enzymes.get(randomIndex());
     }
+
+    private int randomIndex() {
+        return new Random().nextInt(enzymes.size());
+    }
+
+    @Override
+    public abstract void notify(Object object);
 }

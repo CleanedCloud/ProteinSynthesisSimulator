@@ -14,6 +14,6 @@ public class PolymerasePool extends EnzymePool<Polymerase> {
 
     @Override
     public void notify(Object object) {
-        enzymes.get(0).transcript((List<NucleicAcid>) object);
+        randomEnzyme().transcript((List<NucleicAcid>) object);
     }
 }

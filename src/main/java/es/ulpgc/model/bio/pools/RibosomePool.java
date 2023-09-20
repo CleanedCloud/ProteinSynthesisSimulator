@@ -12,6 +12,6 @@ public class RibosomePool extends EnzymePool<Ribosome> {
 
     @Override
     public void notify(Object object) {
-        enzymes.get(0).traduce((ARNm) object);
+        randomEnzyme().traduce((ARNm) object);
     }
 }
