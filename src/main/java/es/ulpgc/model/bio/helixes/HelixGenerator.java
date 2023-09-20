@@ -1,7 +1,6 @@
 package es.ulpgc.model.bio.helixes;
 
-public interface HelixGenerator {
-    Helix generateHelixOfSize(int n);
-    Helix generateComplementaryOf(Helix helix);
+public abstract class HelixGenerator {
+    protected abstract Helix generateHelixOfSize(int n);
 
 }

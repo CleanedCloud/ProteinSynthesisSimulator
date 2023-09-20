@@ -1,19 +1,18 @@
 package es.ulpgc.model.bio.pools;
 
 import es.ulpgc.model.bio.EnzymePool;
-import es.ulpgc.model.bio.acids.NucleicAcid;
 import es.ulpgc.model.bio.enzymes.Polymerase;
 
-import java.util.List;
+import static es.ulpgc.model.bio.helixes.Helix.Gen;
 
 public class PolymerasePool extends EnzymePool<Polymerase> {
 
-    protected PolymerasePool(Class<Polymerase> aClass) {
-        super(aClass);
+    public PolymerasePool() {
+        super(Polymerase.class);
     }
 
     @Override
     public void notify(Object object) {
-        randomEnzyme().transcript((List<NucleicAcid>) object);
+        action.act(randomEnzyme().transcript((Gen) object));
     }
 }

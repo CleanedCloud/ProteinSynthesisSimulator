@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 import static es.ulpgc.model.bio.acids.NucleicAcid.*;
 
-public class ChromatinHelixGenerator implements HelixGenerator {
+public class ChromatinHelixGenerator extends HelixGenerator {
     public static List<NucleicAcid> acids = List.of(Adenine, Thymine, Guanine, Cytosine);
     public final Random randomizer;
 
@@ -25,10 +25,5 @@ public class ChromatinHelixGenerator implements HelixGenerator {
 
     private int getRandomIndex() {
         return randomizer.nextInt(acids.size());
-    }
-
-    @Override
-    public Helix generateComplementaryOf(Helix helix) {
-        return new Helix(helix.nucleicAcids().stream().map(NucleicAcid::complementary).toList());
     }
 }

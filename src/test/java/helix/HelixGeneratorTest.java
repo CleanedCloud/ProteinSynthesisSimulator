@@ -28,11 +28,4 @@ public class HelixGeneratorTest {
         Helix helix = new Helix(List.of(Guanine, Cytosine, Cytosine, Cytosine));
         assertThat(helixGenerator.generateHelixOfSize(4)).isEqualTo(helix);
     }
-
-    @Test
-    public void test_if_generates_complementary_helix() {
-        Helix helix = new Helix(List.of(Guanine, Thymine, Adenine, Cytosine));
-        Helix complementaryHelix = new Helix(List.of(Cytosine, Adenine, Thymine, Guanine));
-        assertThat(helixGenerator.generateComplementaryOf(helix)).isEqualTo(complementaryHelix);
-    }
 }

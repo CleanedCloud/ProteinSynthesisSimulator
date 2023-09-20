@@ -6,12 +6,12 @@ import es.ulpgc.model.bio.helixes.ARNm;
 
 public class RibosomePool extends EnzymePool<Ribosome> {
 
-    protected RibosomePool(Class<Ribosome> aClass) {
-        super(aClass);
+    protected RibosomePool() {
+        super(Ribosome.class);
     }
 
     @Override
     public void notify(Object object) {
-        randomEnzyme().traduce((ARNm) object);
+        action.act(randomEnzyme().traduce((ARNm) object));
     }
 }

@@ -32,6 +32,14 @@ public class Helix {
         return acids;
     }
 
+    public Helix complementary() {
+        return new Helix(this.nucleicAcids().stream().map(NucleicAcid::complementary).toList());
+    }
+
+    public int size() {
+        return this.acids.size();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -43,10 +51,6 @@ public class Helix {
     @Override
     public int hashCode() {
         return Objects.hash(acids);
-    }
-
-    public int size() {
-        return this.acids.size();
     }
 
     public record Gen(List<NucleicAcid> nucleicAcids) {

@@ -1,5 +1,6 @@
 package es.ulpgc.model;
 
-public interface Observer<T extends Observable> {
+public interface Observer {
+    void with(Action action);
     void notify(Object object);
 }
