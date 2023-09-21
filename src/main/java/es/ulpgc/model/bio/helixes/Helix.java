@@ -24,8 +24,8 @@ public class Helix {
         return this;
     }
 
-    public Gen get() {
-        return new Gen(acids.subList(from, to));
+    public List<NucleicAcid> get() {
+        return acids.subList(from, to);
     }
 
     public List<NucleicAcid> nucleicAcids() {
@@ -53,7 +53,7 @@ public class Helix {
         return Objects.hash(acids);
     }
 
-    public record Gen(List<NucleicAcid> nucleicAcids) {
+    public record Gen(List<NucleicAcid> conductorNucleicAcids, List<NucleicAcid> nucleicAcidsDelayed) {
 
     }
 }

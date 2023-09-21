@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Polymerase implements Enzyme {
     public ARNm transcript(Gen gen) {
-        return new ARNm(transcript(gen.nucleicAcids()));
+        return new ARNm(transcript(gen.conductorNucleicAcids()));
     }
 
     private List<NucleicAcid> transcript(List<NucleicAcid> acids) {

@@ -21,7 +21,12 @@ public class Nucleus implements Observable {
     }
 
     public void activate(int startIndex, int endIndex) {
-        notifyObservers(this.chromatin.conductorHelix().from(startIndex).to(endIndex).get());
+        notifyObservers(gen(startIndex, endIndex));
+    }
+
+    private Gen gen(int startIndex, int endIndex) {
+        return new Gen(this.chromatin.conductorHelix().from(startIndex).to(endIndex).get(),
+                       this.chromatin.delayedHelix().from(startIndex).to(endIndex).get());
     }
 
     private void notifyObservers(Gen gen) {
