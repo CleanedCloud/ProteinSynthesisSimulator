@@ -18,7 +18,7 @@ import java.io.FileReader;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class NucleusTest {
+public class TranscriptionTest {
     Cell cell;
     static String resourcePath = "./arnm.txt";
 
