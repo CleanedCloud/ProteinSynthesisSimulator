@@ -9,8 +9,6 @@ import es.ulpgc.model.bio.helixes.ARNm.Codon;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.List;
 
-import static es.ulpgc.model.bio.acids.AminoAcid.aminoAcidMap;
-
 public class Ribosome implements Enzyme {
     public static final List<ARNt> arntList = createArntList();
 
@@ -19,7 +17,7 @@ public class Ribosome implements Enzyme {
     }
 
     private static List<ARNt> createArntList() {
-        return aminoAcidMap.keySet().stream().map(c -> new ARNt(c, aminoAcidMap.get(c))).toList();
+        return null;
     }
 
     public static class ARNt {
@@ -31,6 +29,10 @@ public class Ribosome implements Enzyme {
             this.codon = codon;
             this.aminoAcid = aminoAcid;
             this.mapper = new SimpleEntry<>(codon, aminoAcid);
+        }
+
+        public static ARNt from(SimpleEntry<Codon, AminoAcid> mapper) {
+            return new ARNt(mapper.getKey(), mapper.getValue());
         }
 
         public Codon complementaryCodon() {
