@@ -10,11 +10,11 @@ import java.util.stream.IntStream;
 
 import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
 
-public class ChromatinHelixGenerator extends HelixGenerator {
+public class RandomDNAHelixGenerator implements HelixGenerator {
     public static List<NucleicAcid> acids = List.of(Adenine, Thymine, Guanine, Cytosine);
     public final Random randomizer;
 
-    public ChromatinHelixGenerator(int seed) {
+    public RandomDNAHelixGenerator(int seed) {
         this.randomizer = new Random(seed);
     }
 

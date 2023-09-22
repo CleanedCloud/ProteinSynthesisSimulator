@@ -1,7 +1,7 @@
 package helix;
 
 import es.ulpgc.model.bio.helixes.Helix;
-import es.ulpgc.model.bio.helixes.generators.ChromatinHelixGenerator;
+import es.ulpgc.model.bio.helixes.generators.RandomDNAHelixGenerator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,11 +11,11 @@ import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class HelixGeneratorTest {
-    ChromatinHelixGenerator helixGenerator;
+    RandomDNAHelixGenerator helixGenerator;
 
     @Before
     public void setUp() {
-        helixGenerator = new ChromatinHelixGenerator(4);
+        helixGenerator = new RandomDNAHelixGenerator(4);
     }
 
     @Test
