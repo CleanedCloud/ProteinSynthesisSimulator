@@ -12,8 +12,10 @@ import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
 import static es.ulpgc.model.bio.helixes.ARNm.Codon;
 
 public class CodonBasedPromoterDiscoverer implements PromoterDiscoverer {
-    public static final Codon startCodon = new Codon(Adenine.complementary(), Uracil.complementary(), Cytosine.complementary());
-    public static final List<Codon> stopCodons = List.of(
+    public static final Codon startComplementaryCodon = new Codon(Adenine.complementary(),
+                                                                  Uracil.complementary(),
+                                                                  Cytosine.complementary());
+    public static final List<Codon> stopComplementaryCodons = List.of(
             new Codon(Uracil.complementary(), Adenine.complementary(), Adenine.complementary()),
             new Codon(Uracil.complementary(), Adenine.complementary(), Guanine.complementary()),
             new Codon(Uracil.complementary(), Guanine.complementary(), Adenine.complementary()));
@@ -26,16 +28,16 @@ public class CodonBasedPromoterDiscoverer implements PromoterDiscoverer {
     private List<Promoter> discover(List<Codon> codons) {
         ArrayList<Promoter> result = new ArrayList<>();
         for (int index = 0; index < codons.size(); index++)
-            if (isStartCodon(codons.get(index))) result.add(promoter(index, stopIndex(codons, index)));
+            if (isComplementaryStartCodon(codons.get(index))) result.add(promoter(index, stopIndex(codons, index)));
         return result;
     }
 
-    private static boolean isStartCodon(Codon codon) {
-        return codon.equals(startCodon);
+    private static boolean isComplementaryStartCodon(Codon codon) {
+        return codon.equals(startComplementaryCodon);
     }
 
-    private boolean isStopCodon(Codon codon) {
-        return stopCodons.contains(codon);
+    private boolean isComplementaryStopCodon(Codon codon) {
+        return stopComplementaryCodons.contains(codon);
     }
 
     private Promoter promoter(int startIndex, int stopIndex) {
@@ -48,7 +50,7 @@ public class CodonBasedPromoterDiscoverer implements PromoterDiscoverer {
 
     private int stopIndex(List<Codon> codons, int startIndex) {
         for (int index = startIndex; index < codons.size(); index++)
-            if (isStopCodon(codons.get(index))) return index + 1;
+            if (isComplementaryStopCodon(codons.get(index))) return index + 1;
         return codons.size();
     }
 }

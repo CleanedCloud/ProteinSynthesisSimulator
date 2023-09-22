@@ -19,8 +19,8 @@ import java.io.FileReader;
 import java.util.List;
 
 import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
-import static es.ulpgc.model.bio.helixes.generators.CodonBasedPromoterDiscoverer.startCodon;
-import static es.ulpgc.model.bio.helixes.generators.CodonBasedPromoterDiscoverer.stopCodons;
+import static es.ulpgc.model.bio.helixes.generators.CodonBasedPromoterDiscoverer.startComplementaryCodon;
+import static es.ulpgc.model.bio.helixes.generators.CodonBasedPromoterDiscoverer.stopComplementaryCodons;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class TranscriptionTest {
@@ -29,11 +29,11 @@ public class TranscriptionTest {
 
     @Before
     public void setUp() {
-        Helix conductor = new Helix(List.of(startCodon.a(), startCodon.b(), startCodon.c(),
+        Helix conductor = new Helix(List.of(startComplementaryCodon.a(), startComplementaryCodon.b(), startComplementaryCodon.c(),
                                             Adenine, Guanine, Cytosine,
                                             Adenine, Guanine, Cytosine,
-                                            startCodon.a(), startCodon.b(), startCodon.c(),
-                                            stopCodons.get(0).a(), stopCodons.get(0).b(), stopCodons.get(0).c(),
+                                            startComplementaryCodon.a(), startComplementaryCodon.b(), startComplementaryCodon.c(),
+                                            stopComplementaryCodons.get(0).a(), stopComplementaryCodons.get(0).b(), stopComplementaryCodons.get(0).c(),
                                             Adenine, Guanine, Cytosine));
         cell = new Cell(new Nucleus(new Chromatin(Chromatin.DNA.from(conductor), new CodonBasedPromoterDiscoverer().discover(conductor))));
         cell.nucleus().add(polymerase());
