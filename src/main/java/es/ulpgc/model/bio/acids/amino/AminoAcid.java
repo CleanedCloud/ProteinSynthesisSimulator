@@ -19,10 +19,10 @@ public enum AminoAcid {
         }
 
         private static TranslationTableReader aminoAcidFileReader() {
-            return new TranslationTableReader(codonDeserializer(), AminoAcidDeserializer());
+            return new TranslationTableReader(codonDeserializer(), aminoAcidDeserializer());
         }
 
-        private static NativeAminoAcidDeserializer AminoAcidDeserializer() {
+        private static NativeAminoAcidDeserializer aminoAcidDeserializer() {
             return new NativeAminoAcidDeserializer();
         }
 
