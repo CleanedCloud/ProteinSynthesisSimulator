@@ -26,7 +26,7 @@ public class CodonBasedPromoterDiscovererTest {
         Helix helix = new Helix(List.of(startComplementaryCodon.a(), startComplementaryCodon.b(), startComplementaryCodon.c(),
                                         Adenine, Guanine, Cytosine,
                                         stopComplementaryCodons.get(0).a(), stopComplementaryCodons.get(0).b(), stopComplementaryCodons.get(0).c()));
-        assertThat(discoverer.discover(helix)).isEqualTo(List.of(new Promoter(0,8)));
+        assertThat(discoverer.discover(helix)).isEqualTo(List.of(new Promoter(0,9)));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class CodonBasedPromoterDiscovererTest {
         Helix helix = new Helix(List.of(startComplementaryCodon.a(), startComplementaryCodon.b(), startComplementaryCodon.c(),
                                         Adenine, Guanine, Cytosine,
                                         Adenine, Guanine, Cytosine));
-        assertThat(discoverer.discover(helix)).isEqualTo(List.of(new Promoter(0,8)));
+        assertThat(discoverer.discover(helix)).isEqualTo(List.of(new Promoter(0,9)));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class CodonBasedPromoterDiscovererTest {
                                         startComplementaryCodon.a(), startComplementaryCodon.b(), startComplementaryCodon.c(),
                                         stopComplementaryCodons.get(0).a(), stopComplementaryCodons.get(0).b(), stopComplementaryCodons.get(0).c(),
                                         Adenine, Guanine, Cytosine));
-        assertThat(discoverer.discover(helix)).isEqualTo(List.of(new Promoter(0, 14), new Promoter(8, 14)));
+        assertThat(discoverer.discover(helix)).isEqualTo(List.of(new Promoter(0, 15), new Promoter(9, 15)));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class CodonBasedPromoterDiscovererTest {
                 Adenine, Guanine, Cytosine,
                 startComplementaryCodon.a(), startComplementaryCodon.b(), startComplementaryCodon.c(),
                 Adenine, Guanine, Cytosine));
-        assertThat(discoverer.discover(helix)).isEqualTo(List.of(new Promoter(0,14), new Promoter(8,14)));
+        assertThat(discoverer.discover(helix)).isEqualTo(List.of(new Promoter(0,15), new Promoter(9,15)));
     }
 
     @Test

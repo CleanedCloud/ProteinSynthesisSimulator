@@ -12,13 +12,11 @@ import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
 import static es.ulpgc.model.bio.helixes.ARNm.Codon;
 
 public class CodonBasedPromoterDiscoverer implements PromoterDiscoverer {
-    public static final Codon startComplementaryCodon = new Codon(Adenine.complementary(),
-                                                                  Uracil.complementary(),
-                                                                  Cytosine.complementary());
+    public static final Codon startComplementaryCodon = new Codon(Thymine, Adenine, Cytosine);
     public static final List<Codon> stopComplementaryCodons = List.of(
-            new Codon(Uracil.complementary(), Adenine.complementary(), Adenine.complementary()),
-            new Codon(Uracil.complementary(), Adenine.complementary(), Guanine.complementary()),
-            new Codon(Uracil.complementary(), Guanine.complementary(), Adenine.complementary()));
+            new Codon(Adenine, Thymine, Thymine),
+            new Codon(Adenine, Thymine, Cytosine),
+            new Codon(Adenine, Cytosine, Thymine));
 
     @Override
     public List<Promoter> discover(Helix helix) {
@@ -45,7 +43,7 @@ public class CodonBasedPromoterDiscoverer implements PromoterDiscoverer {
     }
 
     private int index(int index) {
-        return index != 0 ? index * Codon.size - 1 : 0;
+        return index * Codon.size;
     }
 
     private int stopIndex(List<Codon> codons, int startIndex) {

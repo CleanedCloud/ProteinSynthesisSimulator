@@ -30,11 +30,11 @@ public class TranscriptionTest {
     @Before
     public void setUp() {
         Helix conductor = new Helix(List.of(startComplementaryCodon.a(), startComplementaryCodon.b(), startComplementaryCodon.c(),
-                                            Adenine, Guanine, Cytosine,
-                                            Adenine, Guanine, Cytosine,
+                                            Adenine, Adenine, Adenine,
+                                            Adenine, Adenine, Adenine,
                                             startComplementaryCodon.a(), startComplementaryCodon.b(), startComplementaryCodon.c(),
                                             stopComplementaryCodons.get(0).a(), stopComplementaryCodons.get(0).b(), stopComplementaryCodons.get(0).c(),
-                                            Adenine, Guanine, Cytosine));
+                                            Adenine, Adenine, Adenine));
         cell = new Cell(new Nucleus(new Chromatin(Chromatin.DNA.from(conductor), new CodonBasedPromoterDiscoverer().discover(conductor))));
         cell.nucleus().add(polymerase());
     }
@@ -53,7 +53,7 @@ public class TranscriptionTest {
     @Test
     public void activate_and_return_ARNm() {
         cell.nucleus().activate(0);
-        assertThat(readLineOf(resourcePath)).isEqualTo("AACUCGUCGAACAA");
+        assertThat(readLineOf(resourcePath)).isEqualTo("AUGUUUUUUAUGUAA");
     }
 
 
