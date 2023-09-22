@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-import static es.ulpgc.model.bio.acids.NucleicAcid.*;
+import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class NucleicAcidTest {

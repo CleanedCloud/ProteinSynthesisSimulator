@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static es.ulpgc.model.bio.acids.NucleicAcid.*;
+import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class HelixGeneratorTest {

@@ -1,4 +1,4 @@
-package es.ulpgc.model.bio.enzymes;
+package es.ulpgc.model.bio.helixes;
 
 import static es.ulpgc.model.bio.helixes.ARNm.Codon;
 

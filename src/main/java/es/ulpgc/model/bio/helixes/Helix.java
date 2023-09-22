@@ -1,6 +1,6 @@
 package es.ulpgc.model.bio.helixes;
 
-import es.ulpgc.model.bio.acids.NucleicAcid;
+import es.ulpgc.model.bio.acids.nucleic.NucleicAcid;
 
 import java.util.List;
 import java.util.Objects;

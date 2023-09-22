@@ -1,6 +1,6 @@
 package es.ulpgc.model.bio;
 
-import es.ulpgc.model.bio.acids.AminoAcid;
+import es.ulpgc.model.bio.acids.amino.AminoAcid;
 
 import java.util.List;
 

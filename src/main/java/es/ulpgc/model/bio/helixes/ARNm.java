@@ -1,6 +1,6 @@
 package es.ulpgc.model.bio.helixes;
 
-import es.ulpgc.model.bio.acids.NucleicAcid;
+import es.ulpgc.model.bio.acids.nucleic.NucleicAcid;
 
 import java.util.List;
 
@@ -9,34 +9,25 @@ public class ARNm extends Helix {
         super(acids);
     }
 
-    public static class Codon {
-        public final NucleicAcid a;
-        public final NucleicAcid b;
-        public final NucleicAcid c;
-
-        public Codon(NucleicAcid a, NucleicAcid b, NucleicAcid c) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-        }
+    public record Codon(NucleicAcid a, NucleicAcid b, NucleicAcid c) {
 
         public static Codon from(List<NucleicAcid> acids) {
-            return new Codon(acids.get(0), acids.get(1), acids.get(2));
-        }
+                return new Codon(acids.get(0), acids.get(1), acids.get(2));
+            }
 
-        public Codon anticodon() {
-            return new Codon(a.complementary(), b.complementary(), c.complementary());
-        }
+            public Codon anticodon() {
+                return new Codon(a.complementary(), b.complementary(), c.complementary());
+            }
 
-        @Override
-        public int hashCode() {
-            return list().hashCode();
-        }
+            @Override
+            public int hashCode() {
+                return list().hashCode();
+            }
 
-        public List<NucleicAcid> list() {
-            return List.of(a, b, c);
+            public List<NucleicAcid> list() {
+                return List.of(a, b, c);
+            }
         }
-    }
 }
 
 

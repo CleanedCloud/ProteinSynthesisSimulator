@@ -2,7 +2,7 @@ package es.ulpgc.model.bio.enzymes;
 
 import es.ulpgc.model.bio.Enzyme;
 import es.ulpgc.model.bio.Protein;
-import es.ulpgc.model.bio.acids.AminoAcid;
+import es.ulpgc.model.bio.acids.amino.AminoAcid;
 import es.ulpgc.model.bio.helixes.ARNm;
 import es.ulpgc.model.bio.helixes.ARNm.Codon;
 

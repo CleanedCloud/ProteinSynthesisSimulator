@@ -1,6 +1,6 @@
 package enzymes;
 
-import es.ulpgc.model.bio.acids.NucleicAcid;
+import es.ulpgc.model.bio.acids.nucleic.NucleicAcid;
 import es.ulpgc.model.bio.enzymes.Polymerase;
 import es.ulpgc.model.bio.helixes.ARNm;
 import es.ulpgc.model.bio.helixes.Helix;
@@ -9,8 +9,8 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static es.ulpgc.model.bio.acids.NucleicAcid.*;
-import static es.ulpgc.model.bio.acids.NucleicAcid.Cytosine;
+import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
+import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.Cytosine;
 import static es.ulpgc.model.bio.helixes.Helix.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

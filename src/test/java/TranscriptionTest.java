@@ -1,11 +1,12 @@
 import es.ulpgc.model.bio.Cell;
 import es.ulpgc.model.bio.Chromatin;
 import es.ulpgc.model.bio.Nucleus;
+import es.ulpgc.model.bio.acids.nucleic.serializers.FirstLetterNucleicAcidSerializer;
 import es.ulpgc.model.bio.helixes.Helix;
 import es.ulpgc.model.bio.helixes.HelixStore;
 import es.ulpgc.model.bio.helixes.actions.HelixStoreAction;
 import es.ulpgc.model.bio.helixes.generators.ChromatinHelixGenerator;
-import es.ulpgc.model.bio.helixes.serializers.SequenceSerializer;
+import es.ulpgc.model.bio.helixes.serializers.helix.SequenceHelixSerializer;
 import es.ulpgc.model.bio.pools.PolymerasePool;
 import es.ulpgc.model.writers.FileWriter;
 import org.junit.AfterClass;
@@ -37,7 +38,7 @@ public class TranscriptionTest {
     }
 
     private static HelixStore helixStore() {
-        return HelixStore.create(new FileWriter(), new SequenceSerializer());
+        return HelixStore.create(new FileWriter(), new SequenceHelixSerializer(new FirstLetterNucleicAcidSerializer()));
     }
 
     @Test
@@ -58,6 +59,5 @@ public class TranscriptionTest {
     @AfterClass
     public static void afterClass() {
         new File(resourcePath).delete();
-
     }
 }

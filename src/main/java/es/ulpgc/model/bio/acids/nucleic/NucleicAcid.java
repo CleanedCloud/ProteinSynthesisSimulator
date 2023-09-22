@@ -1,4 +1,4 @@
-package es.ulpgc.model.bio.acids;
+package es.ulpgc.model.bio.acids.nucleic;
 
 public enum NucleicAcid {
     Adenine {
@@ -25,4 +25,10 @@ public enum NucleicAcid {
     public abstract NucleicAcid complementary();
     public abstract NucleicAcid transcript();
 
+    public static class NativeNucleicAcidDeserializer implements NucleicAcidDeserializer {
+        @Override
+        public NucleicAcid deserialize(String string) {
+            return NucleicAcid.valueOf(string);
+        }
+    }
 }

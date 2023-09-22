@@ -1,6 +1,6 @@
 package es.ulpgc.model.bio.helixes.generators;
 
-import es.ulpgc.model.bio.acids.NucleicAcid;
+import es.ulpgc.model.bio.acids.nucleic.NucleicAcid;
 import es.ulpgc.model.bio.helixes.Helix;
 import es.ulpgc.model.bio.helixes.HelixGenerator;
 
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import static es.ulpgc.model.bio.acids.NucleicAcid.*;
+import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
 
 public class ChromatinHelixGenerator extends HelixGenerator {
     public static List<NucleicAcid> acids = List.of(Adenine, Thymine, Guanine, Cytosine);

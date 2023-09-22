@@ -1,7 +1,7 @@
 package es.ulpgc.model.bio.enzymes;
 
 import es.ulpgc.model.bio.Enzyme;
-import es.ulpgc.model.bio.acids.NucleicAcid;
+import es.ulpgc.model.bio.acids.nucleic.NucleicAcid;
 import es.ulpgc.model.bio.helixes.ARNm;
 import es.ulpgc.model.bio.helixes.Helix.Gen;
 
