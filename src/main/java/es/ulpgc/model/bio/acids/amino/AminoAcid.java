@@ -49,5 +49,12 @@ public enum AminoAcid {
             return AminoAcid.valueOf(aminoAcid);
         }
     }
+
+    public static class NativeAminoAcidSerializer implements AminoAcidSerializer {
+        @Override
+        public String serialize(AminoAcid aminoAcid) {
+            return aminoAcid.name();
+        }
+    }
 }
 

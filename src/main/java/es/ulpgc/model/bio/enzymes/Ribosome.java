@@ -12,12 +12,20 @@ import java.util.List;
 public class Ribosome implements Enzyme {
     public static final List<ARNt> arntList = createArntList();
 
-    public Protein traduce(ARNm arnm) {
-        return null;
+    public Protein translate(ARNm arnm) {
+        return new Protein(arnm.codons().stream().map(c -> arntFor(c).aminoAcid).toList());
+    }
+
+    private ARNt arntFor(Codon codon) {
+        for (ARNt arnt : arntList)
+            if (codon.equals(arnt.codon)) return arnt;
+        throw new RuntimeException("Not arnt found for " + codon.toString());
     }
 
     private static List<ARNt> createArntList() {
-        return null;
+        return AminoAcid.TranslationMapper.translationMap().keySet().stream()
+                .map(k -> new ARNt(k, AminoAcid.TranslationMapper.translationMap().get(k)))
+                .toList();
     }
 
     public static class ARNt {
@@ -31,13 +39,6 @@ public class Ribosome implements Enzyme {
             this.mapper = new SimpleEntry<>(codon, aminoAcid);
         }
 
-        public static ARNt from(SimpleEntry<Codon, AminoAcid> mapper) {
-            return new ARNt(mapper.getKey(), mapper.getValue());
-        }
-
-        public Codon complementaryCodon() {
-            return codon.anticodon();
-        }
     }
 
 }
