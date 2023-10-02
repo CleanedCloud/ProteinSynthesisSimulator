@@ -1,4 +1,5 @@
 # 🧬 ProteinSynthesisSimulator
+[![My Skills](https://skillicons.dev/icons?i=java&perline=3)](https://skillicons.dev)
 
 ProteinSynthesisSimulator is a Java-based application dedicated to simulating the intricate molecular processes of protein synthesis, a fundamental biological process. This simulator is especially beneficial for bioinformatics studies, offering a detailed understanding of the steps and components involved in protein synthesis.
 
