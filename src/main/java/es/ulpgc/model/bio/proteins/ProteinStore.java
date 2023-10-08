@@ -1,4 +1,4 @@
-package es.ulpgc.model.bio.acids.amino;
+package es.ulpgc.model.bio.proteins;
 
 import es.ulpgc.model.Writer;
 import es.ulpgc.model.bio.Protein;

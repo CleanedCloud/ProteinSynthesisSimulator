@@ -1,11 +1,10 @@
 import es.ulpgc.model.bio.acids.amino.AminoAcid;
-import es.ulpgc.model.bio.acids.amino.ProteinSerializer;
-import es.ulpgc.model.bio.acids.amino.ProteinStore;
-import es.ulpgc.model.bio.acids.amino.ProteinStoreAction;
 import es.ulpgc.model.bio.helixes.ARNm;
 import es.ulpgc.model.bio.pools.RibosomePool;
+import es.ulpgc.model.bio.proteins.ProteinSerializer;
+import es.ulpgc.model.bio.proteins.ProteinStore;
+import es.ulpgc.model.bio.proteins.ProteinStoreAction;
 import es.ulpgc.model.writers.FileWriter;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,6 +21,7 @@ public class TranslationTest {
 
     @Before
     public void setUp() throws Exception {
+        new File(resourcePath).delete();
         RibosomePool ribosomePool = new RibosomePool();
         ribosomePool.generateEnzymes(50);
         ribosomePool.with(storeAction());
@@ -38,11 +38,8 @@ public class TranslationTest {
 
     @Test
     public void should_create_Protein() {
-        new ARNm(List.of(Adenine, Adenine, Adenine,
-                                     Adenine, Adenine, Adenine,
-                                     Adenine, Adenine, Adenine));
+        new ARNm(List.of(Adenine, Adenine, Adenine, Adenine, Adenine, Adenine, Adenine, Adenine, Adenine));
         assertThat(readLineOf(resourcePath)).isEqualTo("LysLysLys");
-
     }
 
     private String readLineOf(String textFile) {
@@ -51,11 +48,5 @@ public class TranslationTest {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-
-    @AfterClass
-    public static void afterClass() {
-        new File(resourcePath).delete();
     }
 }
