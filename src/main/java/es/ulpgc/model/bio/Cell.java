@@ -11,13 +11,26 @@ import java.util.List;
 import static es.ulpgc.model.bio.Chromatin.Chromosome.Chromatid;
 import static es.ulpgc.model.bio.Chromatin.condense;
 
-public record Cell(Nucleus nucleus) {
-    private static final Helicase helicase = new Helicase();
-    private static final DNAPolymerase dnaPolymerase = new DNAPolymerase();
+public class Cell {
+    protected static final Helicase helicase = new Helicase();
+    protected static final DNAPolymerase dnaPolymerase = new DNAPolymerase();
+    public final Nucleus nucleus;
+
+    public Cell(Nucleus nucleus) {
+        this.nucleus = nucleus;
+    }
+
+    public Nucleus nucleus() {
+        return nucleus;
+    }
 
 
     public Tuple<Cell, Cell> selfReplicate() {
-        return createCells(condense(dnaPolymerase.replicate(helicase.splitDNA(nucleus.chromatin.dna))));
+        return createCells(chromosomes(nucleus));
+    }
+
+    public static List<Chromatin.Chromosome> chromosomes(Nucleus nucleus) {
+        return condense(dnaPolymerase.replicate(helicase.splitDNA(nucleus.chromatin.dna)));
     }
 
     private Tuple<Cell, Cell>  createCells(List<Chromatin.Chromosome> chromosomes) {

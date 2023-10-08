@@ -14,11 +14,14 @@ import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class MitosisTest {
+    private Cell cell;
     private final Helix helix = new Helix(List.of(Adenine, Guanine, Cytosine, Adenine, Guanine, Adenine, Guanine,
                                                   Adenine, Guanine, Adenine, Guanine, Adenine, Guanine, Cytosine,
                                                   Adenine, Guanine, Adenine, Guanine, Adenine, Guanine, Adenine,
-                                                  Guanine, Adenine));
-    private Cell cell;
+                                                  Guanine, Adenine, Adenine, Guanine, Cytosine, Adenine, Guanine,
+                                                  Adenine, Guanine, Adenine, Guanine, Adenine, Guanine, Adenine,
+                                                  Guanine, Cytosine, Adenine, Guanine, Adenine, Guanine, Adenine,
+                                                  Guanine, Adenine, Guanine, Adenine));
 
 
     @Before
@@ -27,7 +30,7 @@ public class MitosisTest {
     }
 
     @Test
-    public void name() {
+    public void mitosis() {
         Tuple<Cell, Cell> cellTuple = cell.selfReplicate();
         assertThat(cellTuple.first().nucleus().chromatin.dna).isEqualTo(cellTuple.second().nucleus().chromatin.dna);
     }

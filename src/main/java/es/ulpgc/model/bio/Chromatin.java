@@ -14,7 +14,6 @@ import static java.lang.Math.*;
 public final class Chromatin {
     public final DNA dna;
     public final List<Promoter> promoters;
-    public static final int numberOfChromosomes = 23;
 
 
     public Chromatin(DNA dna, List<Promoter> promoters) {
@@ -65,14 +64,14 @@ public final class Chromatin {
         private final List<Chromosome> chromosomes;
 
         public ChromosomeList(Tuple<DNA, DNA> dnaTuple) {
-            if (dnaTuple.first().size() % numberOfChromosomes != 0)
+            if (dnaTuple.first().size() % humanChromosomeNumber != 0)
                 throw new RuntimeException("The size of the dna helix must be a multiple of 23");
             this.chromosomes = chromosomes(dnaTuple);
         }
 
         private List<Chromosome> chromosomes(Tuple<DNA, DNA> dnaTuple) {
             List<Chromosome> chromosomes = new ArrayList<>();
-            for (int startIndex = 0; startIndex < humanChromosomeNumber / 2; startIndex+=getIncrement(dnaTuple.first()))
+            for (int startIndex = 0; startIndex < humanChromosomeNumber; startIndex+=getIncrement(dnaTuple.first()))
                 chromosomes.add(chromosome(dnaTuple, startIndex));
             return chromosomes;
         }
@@ -91,7 +90,7 @@ public final class Chromatin {
         }
 
         private static int getIncrement(DNA dna) {
-            return dna.size() / numberOfChromosomes;
+            return dna.size() / humanChromosomeNumber;
         }
 
         public List<Chromosome> get() {
