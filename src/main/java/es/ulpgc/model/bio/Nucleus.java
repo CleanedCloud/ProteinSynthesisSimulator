@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Nucleus implements Observable {
     private final List<Observer> observers = new ArrayList<>();
-    public final Chromatin chromatin;
+    public final Chromatin  chromatin;
 
     public Nucleus(Chromatin chromatin) {
         this.chromatin = chromatin;

@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.List;
 
-import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.*;
+import static es.ulpgc.model.bio.acids.nucleic.NucleicAcid.Adenine;
 import static es.ulpgc.model.bio.helixes.generators.CodonBasedPromoterDiscoverer.startComplementaryCodon;
 import static es.ulpgc.model.bio.helixes.generators.CodonBasedPromoterDiscoverer.stopComplementaryCodons;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

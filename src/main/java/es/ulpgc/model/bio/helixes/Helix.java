@@ -41,6 +41,11 @@ public class Helix {
     }
 
     @Override
+    public String toString() {
+        return acids.toString();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
