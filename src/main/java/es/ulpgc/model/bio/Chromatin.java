@@ -12,8 +12,8 @@ import static es.ulpgc.model.bio.helixes.Helix.*;
 import static java.lang.Math.*;
 
 public final class Chromatin {
-    private final DNA dna;
-    private final List<Promoter> promoters;
+    public final DNA dna;
+    public final List<Promoter> promoters;
     public static final int numberOfChromosomes = 23;
 
 
