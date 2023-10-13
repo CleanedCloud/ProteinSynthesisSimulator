@@ -35,7 +35,7 @@ public final class Chromatin {
     }
 
     public static List<Chromosome> condense(Tuple<DNA, DNA> dnaTuple) {
-        return new ChromosomeList(dnaTuple).get();
+        return new ChromosomeBuilder(dnaTuple).get();
     }
 
     private int stopIndex(int genIndex) {
@@ -60,16 +60,16 @@ public final class Chromatin {
     }
 
 
-    private static class ChromosomeList {
+    private static class ChromosomeBuilder {
         private final List<Chromosome> chromosomes;
 
-        public ChromosomeList(Tuple<DNA, DNA> dnaTuple) {
+        public ChromosomeBuilder(Tuple<DNA, DNA> dnaTuple) {
             if (dnaTuple.first().size() % humanChromosomeNumber != 0)
                 throw new RuntimeException("The size of the dna helix must be a multiple of 23");
-            this.chromosomes = chromosomes(dnaTuple);
+            this.chromosomes = compute(dnaTuple);
         }
 
-        private List<Chromosome> chromosomes(Tuple<DNA, DNA> dnaTuple) {
+        private List<Chromosome> compute(Tuple<DNA, DNA> dnaTuple) {
             List<Chromosome> chromosomes = new ArrayList<>();
             for (int startIndex = 0; startIndex < humanChromosomeNumber; startIndex+=getIncrement(dnaTuple.first()))
                 chromosomes.add(chromosome(dnaTuple, startIndex));
