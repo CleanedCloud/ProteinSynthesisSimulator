@@ -1,8 +1,8 @@
-# DNA Replication and Protein Synthesis Simulator
+# BioMol
 [![My Skills](https://skillicons.dev/icons?i=java&perline=3)](https://skillicons.dev)
 
 
-The DNA Replication and Protein Synthesis Simulator is a Java-based application dedicated to simulating the intricate molecular processes of DNA replication and protein synthesis, fundamental biological processes. This simulator offers a detailed understanding of the steps and components involved in both DNA replication and protein synthesis.
+BioMol is a Java-based application dedicated to simulating the intricate molecular processes of DNA replication and protein synthesis, fundamental biological processes. This simulator offers a detailed understanding of the steps and components involved in both DNA replication and protein synthesis.
 
 ## Key Biological Components
 
